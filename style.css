@@ -10,6 +10,11 @@ body {
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
+
+  /* site protection and fade-in */
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 a {
