@@ -45,6 +45,15 @@ nav a:hover {
   color: #82c91e; /* green accent */
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9rem;   /* smaller text */
+  color: #666;
+  margin: 60px 0 20px; /* adds space above and below footer */
+  padding: 10px 20px;
+}
+
 /* Hero */
 .hero {
   width: 100%;
