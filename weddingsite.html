@@ -6,7 +6,14 @@
   <title>A + M's Wedding</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="display: none; opacity: 0; transition: opacity 0.5s;">
+<body>
+
+<script>
+  // Redirect to password page if not authorized
+  if (sessionStorage.getItem("weddingPassword") !== "granted") {
+    window.location.href = "index.html";
+  }
+</script>
 
 <header>
   <nav>
@@ -22,52 +29,72 @@
   </nav>
 </header>
 
+<!-- Hero -->
 <section id="home" class="hero">
   <div class="hero-text">A & M's Wedding</div>
 </section>
 
 <div class="wave-divider">
-  <svg viewBox="0 0 1440 80"><path fill="#f8f8f8" d="M0,0 C720,80 720,0 1440,80 L1440,0 L0,0 Z"></path></svg>
+  <svg viewBox="0 0 1440 80">
+    <path fill="#f8f8f8" d="M0,0 C720,80 720,0 1440,80 L1440,0 L0,0 Z"></path>
+  </svg>
 </div>
 
+<!-- Our Story -->
 <section id="details">
   <h2>Our Story</h2>
   <p>Thank you for celebrating with us! We're planning a simple, meaningful gathering surrounded by our favorite people in Kansas City.</p>
   <p>More details will be added as the date approaches. For now, enjoy a peek into the celebration details!</p>
 </section>
 
+<!-- Venue / Travel -->
 <section id="venue">
   <h2>Venue & Travel</h2>
   <div class="cards">
-    <div class="card"><h3>Location</h3><p>Kansas City, MO</p></div>
-    <div class="card"><h3>Hotels</h3><p>Nearby options will be shared soon.</p></div>
-    <div class="card"><h3>Transportation</h3><p>Details coming soon.</p></div>
+    <div class="card">
+      <h3>Location</h3>
+      <p>Kansas City, MO</p>
+    </div>
+    <div class="card">
+      <h3>Hotels</h3>
+      <p>Nearby options will be shared soon.</p>
+    </div>
+    <div class="card">
+      <h3>Transportation</h3>
+      <p>Details coming soon.</p>
+    </div>
   </div>
 </section>
 
+<!-- Registry -->
 <section id="registry">
   <h2>Registry</h2>
   <p>We would be grateful for contributions to our honeymoon fund.</p>
   <a class="registry-btn" href="https://venmo.com/u/Marysha-Brown" target="_blank">Contribute via Venmo</a>
 </section>
 
+<!-- RSVP -->
 <section id="rsvp">
   <h2>RSVP</h2>
   <p>Please fill out the RSVP form to let us know you'll be attending. (Placeholder)</p>
 </section>
 
+<!-- FAQ -->
 <section id="faq">
   <h2>FAQ</h2>
+
   <div class="faq-card">
-    <div class="faq-question">What should we wear?</div>
+    <div class="faq-question">What should we wear?<span class="arrow">▼</span></div>
     <div class="faq-answer"><p>Wear anything you feel most comfortable in!</p></div>
   </div>
+
   <div class="faq-card">
-    <div class="faq-question">Is parking available?</div>
+    <div class="faq-question">Is parking available?<span class="arrow">▼</span></div>
     <div class="faq-answer"><p>Yes, free parking is available at the venue.</p></div>
   </div>
+
   <div class="faq-card">
-    <div class="faq-question">Are children allowed?</div>
+    <div class="faq-question">Are children allowed?<span class="arrow">▼</span></div>
     <div class="faq-answer"><p>While we love kids, our event is adult-only; thank you for understanding.</p></div>
   </div>
 </section>
@@ -76,22 +103,7 @@
   <p>&copy; 2025 porcupinewhispers</p>
 </footer>
 
-<script>
-  // Fade in page after load
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.style.display = "block";
-    setTimeout(() => document.body.style.opacity = 1, 50);
-  });
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-question').forEach(q => {
-    q.addEventListener('click', () => {
-      q.classList.toggle('active');
-      const answer = q.nextElementSibling;
-      answer.style.maxHeight = q.classList.contains('active') ? answer.scrollHeight + "px" : null;
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
