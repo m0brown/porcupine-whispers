@@ -85,3 +85,36 @@ nav a:hover {
   }
 }
 
+/* Card optimization for different screens */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* cards wrap to next line on small screens */
+  gap: 20px;
+  justify-content: center; /* center cards */
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  flex: 1 1 250px; /* grow/shrink, min width 250px */
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  margin-bottom: 0;
+}
