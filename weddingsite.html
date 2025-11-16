@@ -6,16 +6,15 @@
   <title>A + M's Wedding</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Page Base --- */
+    /* --- Base Styles --- */
     body {
-      display: none; /* hidden until password check */
-      opacity: 0;
-      transition: opacity 0.5s ease;
       font-family: sans-serif;
       margin: 0;
       color: #333;
       line-height: 1.6;
       background-color: #ffffff;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
     header {
@@ -35,7 +34,6 @@
       text-decoration: none;
       color: #333;
       font-weight: bold;
-      transition: color 0.3s;
     }
 
     nav a:hover {
@@ -48,7 +46,7 @@
       color: #86c67b;
     }
 
-    /* --- Hero Section --- */
+    /* Hero Section */
     .hero {
       height: 70vh;
       display: flex;
@@ -66,14 +64,12 @@
       font-weight: bold;
     }
 
-    /* --- Wave Divider --- */
     .wave-divider svg {
       display: block;
       width: 100%;
       height: 80px;
     }
 
-    /* --- Sections --- */
     section {
       padding: 4rem 2rem;
       max-width: 900px;
@@ -86,11 +82,6 @@
       margin-bottom: 1.5rem;
     }
 
-    p {
-      margin-bottom: 1rem;
-    }
-
-    /* --- Cards --- */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -103,15 +94,8 @@
       border-radius: 12px;
       padding: 1rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
-
-    /* --- FAQ Accordion --- */
     .faq-card {
       margin-bottom: 1rem;
       border: 1px solid #ddd;
@@ -149,7 +133,6 @@
       margin: 1rem 0;
     }
 
-    /* --- Footer --- */
     footer {
       text-align: center;
       font-size: 0.8rem;
@@ -157,7 +140,6 @@
       padding: 2rem 1rem;
     }
 
-    /* --- Registry Button --- */
     .registry-btn {
       display: inline-block;
       margin-top: 1rem;
@@ -166,7 +148,6 @@
       color: white;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s;
     }
 
     .registry-btn:hover {
@@ -175,21 +156,6 @@
   </style>
 </head>
 <body>
-
-<script>
-  // Password check: redirect to landing page if not entered
-  if (sessionStorage.getItem("weddingPassword") !== "sprowntown1483") {
-    window.location.href = "index.html";
-  }
-
-  // Reveal page with fade-in
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.style.display = "block";
-    setTimeout(() => {
-      document.body.style.opacity = "1";
-    }, 50);
-  });
-</script>
 
 <header>
   <nav>
@@ -205,7 +171,6 @@
   </nav>
 </header>
 
-<!-- Hero -->
 <section id="home" class="hero">
   <div class="hero-text">A & M's Wedding</div>
 </section>
@@ -214,14 +179,12 @@
   <svg viewBox="0 0 1440 80"><path fill="#f8f8f8" d="M0,0 C720,80 720,0 1440,80 L1440,0 L0,0 Z"></path></svg>
 </div>
 
-<!-- Our Story -->
 <section id="details">
   <h2>Our Story</h2>
   <p>Thank you for celebrating with us! We're planning a simple, meaningful gathering surrounded by our favorite people in Kansas City.</p>
   <p>More details will be added as the date approaches. For now, enjoy a peek into the celebration details!</p>
 </section>
 
-<!-- Venue / Travel -->
 <section id="venue">
   <h2>Venue & Travel</h2>
   <div class="cards">
@@ -240,21 +203,17 @@
   </div>
 </section>
 
-<!-- Registry -->
 <section id="registry">
   <h2>Registry</h2>
   <p>We would be grateful for contributions to our honeymoon fund.</p>
   <a class="registry-btn" href="https://venmo.com/u/Marysha-Brown" target="_blank">Contribute via Venmo</a>
 </section>
 
-<!-- RSVP -->
 <section id="rsvp">
   <h2>RSVP</h2>
   <p>Please fill out the RSVP form to let us know you'll be attending. (Placeholder)</p>
-  <!-- You can embed a free Google Form here -->
 </section>
 
-<!-- FAQ -->
 <section id="faq">
   <h2>FAQ</h2>
 
@@ -270,7 +229,7 @@
 
   <div class="faq-card">
     <div class="faq-question">Are children allowed?</div>
-    <div class="faq-answer"><p>While we love kids, our event is adult-only; thank you for understanding.</p></div>
+    <div class="faq-answer"><p>Our event is adult-only; thank you for understanding.</p></div>
   </div>
 </section>
 
@@ -279,7 +238,13 @@
 </footer>
 
 <script>
-  // FAQ accordion cards
+  // Fade-in effect
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.style.display = "block";
+    setTimeout(() => { document.body.style.opacity = "1"; }, 50);
+  });
+
+  // FAQ accordion
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach(q => {
     q.addEventListener('click', () => {
