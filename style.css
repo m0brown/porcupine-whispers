@@ -48,18 +48,40 @@ nav a:hover {
 /* Hero */
 .hero {
   width: 100%;
-  height: 60vh; /* adjust height as needed */
-  background-size: cover;
-  background-position: center;
+  min-height: 60vh; /* makes it taller on large screens */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   color: white;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  background-image: url('images/20251004_142535.jpg');
+  background-size: cover;      /* image fills container */
+  background-position: center; /* centers image */
+  background-repeat: no-repeat;
 }
 
 .hero-text {
   font-size: 3rem;
   text-align: center;
+  padding: 0 20px; /* avoids text touching edges on small screens */
 }
+
+/* Text smaller on mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 40vh; /* shorter on phones */
+  }
+
+  .hero-text {
+    font-size: 2rem;
+  }
+}
+
+/* Text even smaller on tiny screens */
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 1.5rem;
+  }
+}
+
