@@ -26,44 +26,29 @@
       max-width: 400px;
     }
 
-    .password-container h1 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #333;
-    }
-
-    .password-container p {
-      margin-bottom: 20px;
-      color: #666;
-    }
-
-    #passwordInput {
-      width: 100%;
-      padding: 12px;
+    input, button {
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 12px;
       margin-bottom: 15px;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
       box-sizing: border-box;
     }
 
-    #submitPassword {
-      padding: 12px 25px;
-      font-size: 16px;
+    button {
       border: none;
       background-color: #88c540;
       color: white;
-      border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
-    #submitPassword:hover {
+    button:hover {
       background-color: #6fa32f;
     }
 
     #errorMsg {
-      margin-top: 15px;
       color: red;
       display: none;
     }
@@ -71,16 +56,37 @@
 </head>
 <body>
 
-  <div class="password-container">
-    <h1>Welcome to A + M's Wedding!</h1>
-    <p>Please enter the password to view our wedding website.</p>
+<div class="password-container">
+  <h1>Welcome to A & M's Wedding!</h1>
+  <p>Please enter the password to view our wedding website.</p>
 
-    <input type="password" id="passwordInput" placeholder="Enter password">
-    <button id="submitPassword">Enter</button>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button id="submitPassword">Enter</button>
 
-    <p id="errorMsg">Incorrect password, try again.</p>
-  </div>
+  <p id="errorMsg">Incorrect password, try again.</p>
+</div>
 
-  <script src="password.js"></script>
+<script>
+  // Wait until DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    const correctPassword = "sprowntown1483";
+
+    // Redirect if already approved
+    if (localStorage.getItem("weddingAccess") === "granted") {
+      window.location.href = "weddingsite.html";
+    }
+
+    document.getElementById("submitPassword").addEventListener("click", function() {
+      const entered = document.getElementById("passwordInput").value.trim();
+      if (entered === correctPassword) {
+        localStorage.setItem("weddingAccess", "granted");
+        window.location.href = "weddingsite.html";
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
