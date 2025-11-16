@@ -5,157 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A + M's Wedding</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* --- Base Styles --- */
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      color: #333;
-      line-height: 1.6;
-      background-color: #ffffff;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    header {
-      background-color: #f8f8f8;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #a8d08d;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #86c67b;
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 70vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('images/20251004_142535.jpg') center/cover no-repeat;
-      position: relative;
-      text-align: center;
-    }
-
-    .hero-text {
-      font-size: 3rem;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-      font-weight: bold;
-    }
-
-    .wave-divider svg {
-      display: block;
-      width: 100%;
-      height: 80px;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: #86c67b;
-      margin-bottom: 1.5rem;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .card {
-      flex: 1 1 250px;
-      background: #f8f8f8;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-
-    .faq-card {
-      margin-bottom: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      background: #e0f0d9;
-      padding: 1rem;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .faq-question::after {
-      content: "▼";
-      position: absolute;
-      right: 1rem;
-      transition: transform 0.3s;
-    }
-
-    .faq-question.active::after {
-      transform: rotate(-180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 1rem;
-      transition: max-height 0.3s ease;
-      background: #f8f8f8;
-    }
-
-    .faq-answer p {
-      margin: 1rem 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #999;
-      padding: 2rem 1rem;
-    }
-
-    .registry-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #a8d08d;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .registry-btn:hover {
-      background-color: #86c67b;
-    }
-  </style>
 </head>
-<body>
+<body style="display: none; opacity: 0; transition: opacity 0.5s;">
 
 <header>
   <nav>
@@ -188,18 +39,9 @@
 <section id="venue">
   <h2>Venue & Travel</h2>
   <div class="cards">
-    <div class="card">
-      <h3>Location</h3>
-      <p>Kansas City, MO</p>
-    </div>
-    <div class="card">
-      <h3>Hotels</h3>
-      <p>Nearby options will be shared soon.</p>
-    </div>
-    <div class="card">
-      <h3>Transportation</h3>
-      <p>Details coming soon.</p>
-    </div>
+    <div class="card"><h3>Location</h3><p>Kansas City, MO</p></div>
+    <div class="card"><h3>Hotels</h3><p>Nearby options will be shared soon.</p></div>
+    <div class="card"><h3>Transportation</h3><p>Details coming soon.</p></div>
   </div>
 </section>
 
@@ -216,20 +58,17 @@
 
 <section id="faq">
   <h2>FAQ</h2>
-
   <div class="faq-card">
     <div class="faq-question">What should we wear?</div>
     <div class="faq-answer"><p>Wear anything you feel most comfortable in!</p></div>
   </div>
-
   <div class="faq-card">
     <div class="faq-question">Is parking available?</div>
     <div class="faq-answer"><p>Yes, free parking is available at the venue.</p></div>
   </div>
-
   <div class="faq-card">
     <div class="faq-question">Are children allowed?</div>
-    <div class="faq-answer"><p>Our event is adult-only; thank you for understanding.</p></div>
+    <div class="faq-answer"><p>While we love kids, our event is adult-only; thank you for understanding.</p></div>
   </div>
 </section>
 
@@ -238,23 +77,18 @@
 </footer>
 
 <script>
-  // Fade-in effect
+  // Fade in page after load
   document.addEventListener("DOMContentLoaded", () => {
     document.body.style.display = "block";
-    setTimeout(() => { document.body.style.opacity = "1"; }, 50);
+    setTimeout(() => document.body.style.opacity = 1, 50);
   });
 
   // FAQ accordion
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  faqQuestions.forEach(q => {
+  document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
       q.classList.toggle('active');
       const answer = q.nextElementSibling;
-      if (q.classList.contains('active')) {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      } else {
-        answer.style.maxHeight = null;
-      }
+      answer.style.maxHeight = q.classList.contains('active') ? answer.scrollHeight + "px" : null;
     });
   });
 </script>
