@@ -1,16 +1,10 @@
-// Password for your site
 const correctPassword = "sprowntown1483";
-
-// Redirect automatically if already entered
-if (localStorage.getItem("weddingAccess") === "granted") {
-  window.location.href = "weddingsite.html"; // UPDATED
-}
 
 document.getElementById("submitPassword").addEventListener("click", function() {
   const enteredPassword = document.getElementById("passwordInput").value;
   if (enteredPassword === correctPassword) {
-    localStorage.setItem("weddingAccess", "granted");
-    window.location.href = "weddingsite.html";
+    sessionStorage.setItem("weddingPassword", "granted");
+    window.location.href = "weddingsite.html"; // redirect to main site
   } else {
     document.getElementById("errorMsg").style.display = "block";
   }
