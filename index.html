@@ -15,69 +15,61 @@
       height: 100vh;
       margin: 0;
     }
-
     .password-container {
-      background-color: #ffffff;
-      padding: 40px 30px;
+      background: white;
+      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
-      width: 90%;
-      max-width: 400px;
+      width: 300px;
     }
-
-    input, button {
-      font-size: 16px;
-      padding: 12px;
-      margin-bottom: 15px;
+    .password-container input {
       width: 100%;
+      padding: 0.5rem;
+      margin-top: 1rem;
       border-radius: 6px;
       border: 1px solid #ccc;
-      box-sizing: border-box;
     }
-
-    button {
-      border: none;
-      background-color: #88c540;
+    .password-container button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #86c67b;
       color: white;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
-
-    button:hover {
-      background-color: #6fa32f;
+    .password-container button:hover {
+      background-color: #a8d08d;
     }
-
     #errorMsg {
+      margin-top: 1rem;
       color: red;
       display: none;
     }
   </style>
 </head>
 <body>
+  <div class="password-container">
+    <h1>Welcome to A & M's Wedding!</h1>
+    <p>Please enter the password to view our wedding website.</p>
 
-<div class="password-container">
-  <h1>Welcome to A & M's Wedding!</h1>
-  <p>Please enter the password to view our wedding website.</p>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button id="submitPassword">Enter</button>
 
-  <input type="password" id="passwordInput" placeholder="Enter password">
-  <button id="submitPassword">Enter</button>
+    <p id="errorMsg">Incorrect password, try again.</p>
+  </div>
 
-  <p id="errorMsg">Incorrect password, try again.</p>
-</div>
-
-<script>
-  // Wait until DOM is fully loaded
-  document.addEventListener("DOMContentLoaded", function() {
+  <script>
     const correctPassword = "sprowntown1483";
 
-    // Redirect if already approved
+    // If user already entered password, redirect directly
     if (localStorage.getItem("weddingAccess") === "granted") {
       window.location.href = "weddingsite.html";
     }
 
     document.getElementById("submitPassword").addEventListener("click", function() {
-      const entered = document.getElementById("passwordInput").value.trim();
+      const entered = document.getElementById("passwordInput").value;
       if (entered === correctPassword) {
         localStorage.setItem("weddingAccess", "granted");
         window.location.href = "weddingsite.html";
@@ -85,8 +77,6 @@
         document.getElementById("errorMsg").style.display = "block";
       }
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
