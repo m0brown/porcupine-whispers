@@ -1,24 +1,17 @@
-const encodedPassword = "c3Byb3dudG93bjE0ODM="; // "sprowntown1483" in base64
-const correctPassword = atob(encodedPassword);
+// Password for your site
+const correctPassword = "sprowntown1483";
 
-// Check if password has already been entered in this session
-if (sessionStorage.getItem("weddingPassword") !== correctPassword) {
-  let entered = null;
-
-  // Keep prompting until the correct password is entered
-  while (entered !== correctPassword) {
-    entered = prompt("Enter the password to view this site:")?.trim();
-    if (entered === null) {
-      alert("You must enter the password to view the site.");
-    }
-  }
-
-  // Save in sessionStorage so other pages in this tab won't ask again
-  sessionStorage.setItem("weddingPassword", correctPassword);
+// Check if the user already entered the correct password
+if (localStorage.getItem("weddingAccess") === "granted") {
+  window.location.href = "wedding.html"; // redirect if already approved
 }
 
-// Fade-in
-document.body.style.display = "block";
-setTimeout(() => {
-  document.body.style.opacity = "1";
-}, 50);
+document.getElementById("submitPassword").addEventListener("click", function() {
+  const enteredPassword = document.getElementById("passwordInput").value;
+  if (enteredPassword === correctPassword) {
+    localStorage.setItem("weddingAccess", "granted"); // remember user
+    window.location.href = "wedding.html"; // go to wedding page
+  } else {
+    document.getElementById("errorMsg").style.display = "block";
+  }
+});
