@@ -28,13 +28,13 @@ nav a {
 }
 
 nav a:hover {
-  color: #a8d08d;
+  color: #306030;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #86c67b;
+  color: #123524;
 }
 
 /* --- Hero --- */
@@ -70,7 +70,7 @@ section {
 
 h2 {
   font-size: 2rem;
-  color: #86c67b;
+  color: #123524;
   margin-bottom: 1.5rem;
 }
 
@@ -136,7 +136,7 @@ p {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #a8d08d;
+  background-color: #306030;
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -144,7 +144,7 @@ p {
 }
 
 .registry-btn:hover {
-  background-color: #86c67b;
+  background-color: #123524;
 }
 
 /* --- Footer --- */
@@ -176,7 +176,7 @@ footer {
 
 .password-container button {
   padding: 0.5rem 1rem;
-  background-color: #a8d08d;
+  background-color: #306030;
   color: white;
   border: none;
   border-radius: 6px;
@@ -184,5 +184,5 @@ footer {
 }
 
 .password-container button:hover {
-  background-color: #86c67b;
+  background-color: #123524;
 }
