@@ -1,22 +1,18 @@
-const encodedPassword = "d2VkZGluZzIwMjU="; // "wedding2025" in base64
+document.addEventListener("DOMContentLoaded", () => {
+  const encodedPassword = "c3Byb3dudG93bjE0ODM="; // "sprowntown1483" in base64
+  const correctPassword = atob(encodedPassword);
 
-function decodePassword(encoded) {
-  return atob(encoded);
-}
-
-const correctPassword = decodePassword(encodedPassword);
-
-let entered = "";
-while (entered !== correctPassword) {
-  entered = prompt("Enter the password to view this site:");
-  if (entered === null) {
-    alert("You must enter the password to view the site.");
+  let entered = "";
+  while (entered !== correctPassword) {
+    entered = prompt("Enter the password to view this site:");
+    if (entered === null) {
+      alert("You must enter the password to view the site.");
+    }
   }
-}
 
-document.body.style.display = "block";
-
-//fade-in effect
-setTimeout(() => {
-  document.body.style.opacity = "1";
-}, 50);
+  // Fade-in effect
+  document.body.style.display = "block";
+  setTimeout(() => {
+    document.body.style.opacity = "1";
+  }, 50);
+});
